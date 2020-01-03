@@ -30,14 +30,27 @@ with open(filename, newline="") as csvfile:
     for ic in range (1, len(profit_losses)):
        monthly_change_pl.append(pl_numeric[ic]-pl_numeric[ic-1])
 
+# calculate min and max values in table monthly_change_pl and their positions
+
+    min_profit = min(monthly_change_pl)
+    max_profit = max(monthly_change_pl)
+
+    min_profit_position = monthly_change_pl.index(min_profit)
+    max_profit_position = monthly_change_pl.index(max_profit)
+
 # calculate variables for final data output
     average_change = sum(monthly_change_pl)/len(monthly_change_pl)
     months_total = len(date)
     sumof_pl = sum(pl_numeric)
+    dateof_min_profit = date [min_profit_position + 1]
+    dateof_max_profit = date [max_profit_position + 1]
 
 # print final report
 
     print ("Financial Analysis")
+    print ("-------------------")
     print(f"Total Months: {months_total}")
-    print(f"Total: ${sumof_pl}")
+    print(f"Total Profit: ${sumof_pl}")
     print(f"Average Change: ${round(average_change, 2)}")
+    print (f"Greatest Increase in Profits: {dateof_max_profit} (${max_profit})")
+    print (f"Greatest Decrease in Profits: {dateof_min_profit} (${min_profit})")
