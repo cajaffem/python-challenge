@@ -16,7 +16,6 @@ with open(filename, newline="") as csvfile:
 
 # read the header row first
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
 
 # read each row of data after the header
     for row in csvreader:
