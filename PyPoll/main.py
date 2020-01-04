@@ -26,11 +26,13 @@ with open(filename, newline="") as csvfile:
     print (county [0])
     print (candidate [0])
 
-    # create new list of unique candidates
+# create new list of unique candidates
     indv_cand = []
 
     for x in candidate:
         if x not in indv_cand:
                 indv_cand.append(x)
     print(indv_cand)
-    print (candidate)
+# create variable for total votes cast
+    tot_votes = len(voter_id)
+    print(tot_votes)
