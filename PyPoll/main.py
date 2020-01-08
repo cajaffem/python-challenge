@@ -30,7 +30,7 @@ with open(filename, newline="") as csvfile:
     for x in candidate:
         if x not in indv_cand:
                 indv_cand.append(x)
-    #print(indv_cand) returns list of all candidates
+    #print(indv_cand) returns list of all candidates: Khan, Correy, Li, and O'Tooley
 
 # create variable for total votes cast
     tot_votes = len(voter_id)
@@ -47,22 +47,26 @@ with open(filename, newline="") as csvfile:
     percent_Li = votes_Li/len(voter_id) * 100
     percent_OTooley = votes_OTooley/len(voter_id) * 100
 
-# print final poll report + conditional to determine overall winner as final print statement
-    print("Election Results")
-    print("-------------------------")
-    print(f"Total Votes: {tot_votes}")
-    print("-------------------------")
-    print(f"Khan: {round(percent_Khan, 2)}% ({votes_Khan})")
-    print(f"Correy: {round(percent_Correy, 2)}% ({votes_Correy})")
-    print(f"Li: {round(percent_Li, 2)}% ({votes_Li})")
-    print(f"O'Tooley: {round(percent_OTooley, 2)}% ({votes_OTooley})")
-    print("-------------------------")
+# Create If-statement to determine who won most votes 
     if votes_Khan > votes_Correy and votes_Li and votes_OTooley:
-        print("Winner: Khan")
+        winner = "Winner: Khan"
     elif votes_Correy > votes_Khan and votes_Li and votes_OTooley:
-        print ("Winner: Correy")
+        winner = "Winner: Correy"
     elif votes_Li > votes_Khan and votes_Correy and votes_OTooley:
-        print ("Winner: Li")
+        winner = "Winner: Li"
     elif votes_OTooley > votes_Khan and votes_Correy and votes_Li:
-        print ("Winner: O'Tooley")
-    print("-------------------------")
+        winner = "Winner: O'Tooley"
+
+# print final poll report
+    final_report = print(f"""Election Results
+-------------------------
+Total Votes: {tot_votes}
+-------------------------
+Khan: {round(percent_Khan, 2)}% ({votes_Khan})
+Correy: {round(percent_Correy, 2)}% ({votes_Correy})
+Li: {round(percent_Li, 2)}% ({votes_Li})
+O'Tooley: {round(percent_OTooley, 2)}% ({votes_OTooley})
+-------------------------
+({winner})
+-------------------------""")
+    print (final_report)

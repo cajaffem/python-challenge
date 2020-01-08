@@ -46,10 +46,12 @@ with open(filename, newline="") as csvfile:
 
 # print final report
 
-    print ("Financial Analysis")
-    print ("-------------------")
-    print(f"Total Months: {months_total}")
-    print(f"Total Profit: ${sumof_pl}")
-    print(f"Average Change: ${round(average_change, 2)}")
-    print (f"Greatest Increase in Profits: {dateof_max_profit} (${max_profit})")
-    print (f"Greatest Decrease in Profits: {dateof_min_profit} (${min_profit})")
+    final_report = print (f"""Financial Analysis
+-------------------
+Total Months: {months_total}
+Total Profit: ${sumof_pl}
+Average Change: ${round(average_change, 2)}
+Greatest Increase in Profits: {dateof_max_profit} (${max_profit})
+Greatest Decrease in Profits: {dateof_min_profit} (${min_profit})
+-------------------""")
+print (final_report)
