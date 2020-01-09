@@ -12,8 +12,6 @@ with open(filename, newline="") as csvfile:
 # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=",")
 
-    #print(csvreader)
-
 # read the header row first
     csv_header = next(csvreader)
 
