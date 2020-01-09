@@ -12,8 +12,6 @@ with open(filename, newline="") as csvfile:
 # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=",")
 
-    print(csvreader)
-
 # Read out header
     csv_header = next(csvreader)
 
@@ -58,7 +56,7 @@ with open(filename, newline="") as csvfile:
         winner = "Winner: O'Tooley"
 
 # print final poll report
-    final_report = print(f"""Election Results
+    final_report = (f"""Election Results
 -------------------------
 Total Votes: {tot_votes}
 -------------------------
@@ -70,3 +68,7 @@ O'Tooley: {round(percent_OTooley, 2)}% ({votes_OTooley})
 ({winner})
 -------------------------""")
     print (final_report)
+    
+    txt_file = open ("PyPoll_txtfile.txt", "w")
+    print (final_report, file = txt_file)
+    txt_file.close()

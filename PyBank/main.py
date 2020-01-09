@@ -12,7 +12,7 @@ with open(filename, newline="") as csvfile:
 # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=",")
 
-    print(csvreader)
+    #print(csvreader)
 
 # read the header row first
     csv_header = next(csvreader)
@@ -46,7 +46,7 @@ with open(filename, newline="") as csvfile:
 
 # print final report
 
-    final_report = print (f"""Financial Analysis
+    final_report = (f"""Financial Analysis
 -------------------
 Total Months: {months_total}
 Total Profit: ${sumof_pl}
@@ -54,4 +54,8 @@ Average Change: ${round(average_change, 2)}
 Greatest Increase in Profits: {dateof_max_profit} (${max_profit})
 Greatest Decrease in Profits: {dateof_min_profit} (${min_profit})
 -------------------""")
-print (final_report)
+    print (final_report)
+
+    txt_file = open ("PyBank_txtfile.txt", "w")
+    print (final_report, file = txt_file)
+    txt_file.close()
